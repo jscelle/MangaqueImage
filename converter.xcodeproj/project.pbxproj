@@ -14,6 +14,7 @@
 		A4EDEA4228B5485500331C91 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4EDEA4028B5485500331C91 /* Main.storyboard */; };
 		A4EDEA4428B5485500331C91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4EDEA4328B5485500331C91 /* Assets.xcassets */; };
 		A4EDEA4728B5485500331C91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4EDEA4528B5485500331C91 /* LaunchScreen.storyboard */; };
+		A4EDEA4F28B6991B00331C91 /* ImageLighter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EDEA4E28B6991B00331C91 /* ImageLighter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		A4EDEA4328B5485500331C91 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A4EDEA4628B5485500331C91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A4EDEA4828B5485500331C91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A4EDEA4E28B6991B00331C91 /* ImageLighter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLighter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +58,6 @@
 				8F1FA37B0474A4FD8A916B28 /* Pods-converter.debug.xcconfig */,
 				728FF4864CC0E980904859AA /* Pods-converter.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -88,6 +89,7 @@
 				A4EDEA4328B5485500331C91 /* Assets.xcassets */,
 				A4EDEA4528B5485500331C91 /* LaunchScreen.storyboard */,
 				A4EDEA4828B5485500331C91 /* Info.plist */,
+				A4EDEA4E28B6991B00331C91 /* ImageLighter.swift */,
 			);
 			path = converter;
 			sourceTree = "<group>";
@@ -210,6 +212,7 @@
 				A4EDEA3F28B5485500331C91 /* ViewController.swift in Sources */,
 				A4EDEA3B28B5485500331C91 /* AppDelegate.swift in Sources */,
 				A4EDEA3D28B5485500331C91 /* SceneDelegate.swift in Sources */,
+				A4EDEA4F28B6991B00331C91 /* ImageLighter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
