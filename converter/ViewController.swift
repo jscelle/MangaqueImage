@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var imageConverterView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        imageConverterView.image = #imageLiteral(resourceName: "image1")
+        imageConverterView.image = #imageLiteral(resourceName: "Image-1")
         imageConverterView.contentMode = .scaleAspectFit
         
         mangaque.recognizeText(imageView: imageConverterView)
