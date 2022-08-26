@@ -6,10 +6,6 @@
 //
 
 import SnapKit
-import Vision
-import AVFoundation
-
-
 
 class ViewController: UIViewController {
     
@@ -18,11 +14,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var imageConverterView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        imageConverterView.image = #imageLiteral(resourceName: "Image-1")
+        imageConverterView.image = #imageLiteral(resourceName: "solo")
         imageConverterView.contentMode = .scaleAspectFit
         
-        mangaque.recognizeText(imageView: imageConverterView)
-        
+        mangaque.redrawImage(imageView: imageConverterView)
     }
 }
 
