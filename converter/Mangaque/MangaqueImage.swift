@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import CoreImage
 
 #warning("add options: background color, fill or show box, translation type, translate to language, etc")
 
@@ -15,12 +16,11 @@ final class MangaqueImage {
     private let processor = MangaqueImageProcessor()
     
     func redrawImage(
-        imageView: UIImageView
+        image: UIImage,
+        textColor: MangaqueColor,
+        backgroundColor: MangaqueColor,
+        completionHandler: @escaping (_ image: UIImage) -> ()
     ) {
-        
-        guard let image = imageView.image else {
-            return
-        }
         
         guard let cgImage = image.cgImage else {
             return
@@ -60,30 +60,35 @@ final class MangaqueImage {
                     
                     for synopsis in result {
                         
-                        let label = UILabel()
+                        let bgColor: UIColor
+                        let txtColor: UIColor
                         
-                        label.font = .systemFont(ofSize: 30)
+                        switch backgroundColor {
+                            case .custom(let color) :
+                                bgColor = color
+                            case .auto:
+                                bgColor = cgImage.averageColorOf(rect: synopsis.rect)
+                        }
                         
-                        label.adjustsFontSizeToFitWidth = true
+                        switch textColor {
+                            case .custom(let color):
+                                txtColor = color
+                            case .auto:
+                                txtColor = bgColor.textColor()
+                        }
                         
-                        label.numberOfLines = 0
-                        
-                        label.backgroundColor = .black
-                        label.textAlignment = .center
-                        
-                        label.bounds = synopsis.rect
-                        
-                        label.text = synopsis.text
-                        label.textColor = .white
+                        let label = UILabel.createLabel(
+                            textColor: txtColor,
+                            backgroundColor: bgColor,
+                            bounds: synopsis.rect,
+                            text: synopsis.text
+                        )
                         
                         label.layer.render(in: context.cgContext)
-                        
                     }
-                    
                 }
-                imageView.image = final
+                completionHandler(final)
             }
         }
     }
 }
-

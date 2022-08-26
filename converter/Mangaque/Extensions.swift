@@ -31,7 +31,7 @@ extension CGRect {
     }
 }
 
-// MARK: Scale and orient UIImage
+// MARK: UIImage scale and orient 
 extension UIImage {
     ///  Scale and orient picture for Vision framework
     ///
@@ -120,7 +120,8 @@ extension UIImage {
     }
 }
 
-// MARK: Array
+// MARK: Array group
+
 extension Array {
     func grouped(by equal: (Element, Element) -> Bool) -> [[Element]] {
         guard let firstElement = first else { return [] }
@@ -129,26 +130,124 @@ extension Array {
     }
 }
 
-// MARK: CGRect
-extension CGRect {
-    
-    func distance(from rect: CGRect) -> CGSize {
-        if intersects(rect) {
-            return CGSize(width: 0, height: 0)
+// MARK: CGImage get color by rect
+
+extension CGImage {
+    func colors(at: [CGPoint]) -> [UIColor]? {
+        let colorSpace = CGColorSpaceCreateDeviceRGB()
+        let bytesPerPixel = 4
+        let bytesPerRow = bytesPerPixel * width
+        let bitsPerComponent = 8
+        let bitmapInfo: UInt32 = CGImageAlphaInfo.premultipliedLast.rawValue | CGBitmapInfo.byteOrder32Big.rawValue
+        
+        guard let context = CGContext(data: nil, width: width, height: height, bitsPerComponent: bitsPerComponent, bytesPerRow: bytesPerRow, space: colorSpace, bitmapInfo: bitmapInfo),
+              let ptr = context.data?.assumingMemoryBound(to: UInt8.self) else {
+            return nil
         }
         
-        let mostLeft = origin.x < rect.origin.x ? self : rect
-        let mostRight = rect.origin.x < self.origin.x ? self : rect
+        context.draw(self, in: CGRect(x: 0, y: 0, width: width, height: height))
         
-        var xDifference = mostLeft.origin.x == mostRight.origin.x ? 0 : mostRight.origin.x - (mostLeft.origin.x + mostLeft.size.width)
-        xDifference = CGFloat(max(0, xDifference))
+        return at.map { p in
+            let i = bytesPerRow * Int(p.y) + bytesPerPixel * Int(p.x)
+            
+            let a = CGFloat(ptr[i + 3]) / 255.0
+            let r = (CGFloat(ptr[i]) / a) / 255.0
+            let g = (CGFloat(ptr[i + 1]) / a) / 255.0
+            let b = (CGFloat(ptr[i + 2]) / a) / 255.0
+            
+            return UIColor(red: r, green: g, blue: b, alpha: a)
+        }
+    }
+    
+    func averageColorOf(rect: CGRect) -> UIColor {
         
-        let upper = self.origin.y < rect.origin.y ? self : rect
-        let lower = rect.origin.y < self.origin.y ? self : rect
+        let points = [
+            CGPoint(
+                x: rect.minX,
+                y: rect.minY
+            ),
+            CGPoint(
+                x: rect.maxX,
+                y: rect.minY
+            ),
+            CGPoint(
+                x: rect.minX,
+                y: rect.maxY
+            ),
+            CGPoint(
+                x: rect.maxX,
+                y: rect.maxY
+            )
+        ]
         
-        var yDifference = upper.origin.y == lower.origin.y ? 0 : lower.origin.y - (upper.origin.y + upper.size.height)
-        yDifference = CGFloat(max(0, yDifference))
+        guard let colors = colors(at: points) else {
+            return .clear
+        }
         
-        return CGSize(width: xDifference, height: yDifference)
+        return colors.blend()
+    }
+}
+
+extension UIColor {
+    func textColor() -> UIColor {
+        
+        var r: CGFloat = 0.0
+        var g: CGFloat = 0.0
+        var b: CGFloat = 0.0
+        var a: CGFloat = 0.0
+        var brightness: CGFloat = 0.0
+        
+        self.getRed(&r, green: &g, blue: &b, alpha: &a)
+        
+        // algorithm from: http://www.w3.org/WAI/ER/WD-AERT/#color-contrast
+        brightness = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+        if (brightness < 0.3) {
+            return UIColor.white
+        }
+        else {
+            return UIColor.black
+        }
+    }
+}
+
+// MARK: Color array
+
+extension Array where Element: UIColor {
+    func blend() -> UIColor {
+        let componentsSum = self.reduce((red: CGFloat(0), green: CGFloat(0), blue: CGFloat(0))) { (temp, color) in
+            guard let components = color.cgColor.components else { return temp }
+            return (temp.0 + components[0], temp.1 + components[1], temp.2 + components[2])
+        }
+        let components = (red: componentsSum.red / CGFloat(self.count) ,
+                          green: componentsSum.green / CGFloat(self.count),
+                          blue: componentsSum.blue / CGFloat(self.count))
+        return UIColor(red: components.red, green: components.green, blue: components.blue, alpha: 1)
+    }
+}
+// MARK: Label fabric
+extension UILabel {
+    static func createLabel(
+        textColor: UIColor,
+        backgroundColor: UIColor,
+        bounds: CGRect,
+        text: String
+    ) -> UILabel {
+        let label = UILabel()
+        
+        label.font = .systemFont(ofSize: 30)
+        
+        label.adjustsFontSizeToFitWidth = true
+        
+        label.numberOfLines = 0
+        
+        label.backgroundColor = backgroundColor
+        label.textAlignment = .center
+        
+        label.bounds = bounds
+        
+        label.text = text
+        label.textColor = textColor
+        
+        return label
     }
 }

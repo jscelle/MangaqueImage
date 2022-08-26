@@ -14,10 +14,21 @@ class ViewController: UIViewController {
     @IBOutlet weak var imageConverterView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        imageConverterView.image = #imageLiteral(resourceName: "solo")
+        imageConverterView.image = #imageLiteral(resourceName: "Image")
         imageConverterView.contentMode = .scaleAspectFit
         
-        mangaque.redrawImage(imageView: imageConverterView)
+        mangaque.redrawImage(
+            image: imageConverterView.image!,
+            textColor: .auto,
+            backgroundColor: .auto
+        ) { [weak self] image in
+            
+            guard let self = self else {
+                return
+            }
+            
+            self.imageConverterView.image = image
+        }
     }
 }
 

@@ -7,8 +7,13 @@
 
 import UIKit
 
+enum MangaqueColor {
+    case auto
+    case custom(color: UIColor)
+}
 
 struct Synopsis {
     let text: String
     let rect: CGRect
 }
+
