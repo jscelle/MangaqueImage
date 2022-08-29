@@ -2,7 +2,7 @@
 
 MangaqueImage is a simple library based on 👁Apple Vision👁, which will allow you to find, automatically fill and translate text, redrawing input image.
 
-## 💎Instalation💎
+## 💎 Instalation 💎
 
 Instalation via SwiftPackages
 
@@ -40,7 +40,7 @@ class ViewController: UIViewController {
     }
 }
 ```
-### 📇MangaqueImage transaltor📇
+### 📇 MangaqueImage transaltor 📇
 
 You have to make your own translator implementation.
 Just create a class what inherits from MangaqueTransaltor interface
@@ -55,7 +55,7 @@ class FakeTranslator: MangaqueTranslator {
 }
 ```
 
-### 💙Mangaque Color💙
+### 💙 Mangaque Color 💙
 
 "Auto" option detects color of element automatically, but if you want to use specific color you can simply pass it
 
@@ -66,7 +66,7 @@ public enum MangaqueColor {
 }
 ```
 
-### 🏖Implementation🏖
+### 🏖 Implementation 🏖
 
 ```
 // Green color of background
@@ -90,7 +90,7 @@ mangaqueImage.redrawImage(
         }
 }
 ```
-## 🌩Example of work🌩
+## 🌩 Example of work 🌩
 
 Image before MangaqueImage redraw:
 
