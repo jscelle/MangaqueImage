@@ -8,7 +8,7 @@ Instalation via SwiftPackages
 
 ## 🛠How to use🛠
 
-# 🖼MangaqueImage image redraw🖼
+## 🖼MangaqueImage image redraw🖼
 ```
 import MangaqueImage
 
@@ -40,7 +40,7 @@ class ViewController: UIViewController {
     }
 }
 ```
-# 📇MangaqueImage transaltor📇
+## 📇MangaqueImage transaltor📇
 
 You have to make your own translator implementation.
 Just create a class what inherits from MangaqueTransaltor interface
@@ -55,7 +55,7 @@ class FakeTranslator: MangaqueTranslator {
 }
 ```
 
-# 💙Mangaque Color💙
+## 💙Mangaque Color💙
 
 "Auto" option detects color of element automatically, but if you want to use specific color you can simply pass it
 
@@ -90,7 +90,7 @@ mangaqueImage.redrawImage(
         }
 }
 ```
-# 🌩Example of work🌩
+## 🌩Example of work🌩
 
 Image before MangaqueImage redraw:
 
