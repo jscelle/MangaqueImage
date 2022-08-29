@@ -1,6 +1,6 @@
 # MangaqueImage
 
-MangaqueImage is a simple library based on 👁Apple Vision👁, which will allow you to find, automatically fill and translate text, redrawing input image.
+MangaqueImage is a simple library based on 👁Apple Vision👁, which allows you to find, automatically fill and translate text, redrawing input image.
 
 ## 💎 Instalation 💎
 
