@@ -9,11 +9,13 @@
 import Foundation
 import UIKit
 
-public final class MangaqueImage {
+public class MangaqueImage {
+    
+    public init() {}
     
     private let processor = MangaqueImageProcessor()
     
-    func redrawImage(
+    public func redrawImage(
         image: UIImage,
         translator: MangaqueTranslation,
         textColor: MangaqueColor,
