@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  converter
+//  Example
 //
-//  Created by Artem Raykh on 23.08.2022.
+//  Created by Artem Raykh on 29.08.2022.
 //
 
 import UIKit

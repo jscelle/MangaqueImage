@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "mangaqueimage",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/jscelle/MangaqueImage",
+      "state" : {
+        "branch" : "main",
+        "revision" : "47d4bef2ea034f686241ff627f4d2948dda5db0f"
+      }
+    }
+  ],
+  "version" : 2
+}

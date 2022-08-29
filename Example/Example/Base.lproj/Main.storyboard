@@ -11,31 +11,31 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="converter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OeZ-4w-TdE">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="L06-Fu-7tY">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="OeZ-4w-TdE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="K5d-8a-uMO"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="OeZ-4w-TdE" secondAttribute="trailing" id="Mhw-Nz-WEp"/>
-                            <constraint firstItem="OeZ-4w-TdE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="wrB-3R-yFI"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="OeZ-4w-TdE" secondAttribute="bottom" id="zev-TB-Ijv"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="L06-Fu-7tY" secondAttribute="trailing" id="7cz-rm-1m4"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="L06-Fu-7tY" secondAttribute="bottom" id="C1f-IU-Tiy"/>
+                            <constraint firstItem="L06-Fu-7tY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="cXx-so-ce8"/>
+                            <constraint firstItem="L06-Fu-7tY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="qEA-VT-wMb"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="imageConverterView" destination="OeZ-4w-TdE" id="pYf-rM-ak2"/>
+                        <outlet property="contentImageView" destination="L06-Fu-7tY" id="SAb-lP-jTg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="20" y="78"/>
+            <point key="canvasLocation" x="20" y="92"/>
         </scene>
     </scenes>
     <resources>
