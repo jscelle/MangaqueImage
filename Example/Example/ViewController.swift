@@ -9,7 +9,7 @@ import UIKit
 import MangaqueImage
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var contentImageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,28 +18,30 @@ class ViewController: UIViewController {
         
         let fakeTranslator = FakeTranslator()
         
+        let backgroundColor = MangaqueColor.custom(color: UIColor.green)
+        let textColor = MangaqueColor.auto
+        
         mangaqueImage.redrawImage(
             image: #imageLiteral(resourceName: "Image"),
-            translator: .custom(translator: fakeTranslator),
-            textColor: .auto,
-            backgroundColor: .auto
+            translator: .none,
+            textColor: textColor,
+            backgroundColor: backgroundColor
         ) { [weak self] image, error in
-                
-                if let error = error {
-                    print(error)
-                }
-                
-                if let image = image {
-                    self?.contentImageView.image = image
-                }
+            
+            if let error = error {
+                print(error)
             }
+            
+            if let image = image {
+                self?.contentImageView.image = image
+            }
+        }
     }
 }
 
 class FakeTranslator: MangaqueTranslator {
     func performTranslate(untranslatedText: String, comletionHandler: @escaping (String?, Error?) -> ()) {
+        // MARK: There is your own implementation
         comletionHandler("fake", nil)
     }
-    
-    
 }
