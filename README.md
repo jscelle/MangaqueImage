@@ -8,7 +8,7 @@ Instalation via SwiftPackages
 
 ## How to use
 
-MangaqueImage for image redraw
+#MangaqueImage for image redraw
 ```
 import MangaqueImage
 
@@ -39,17 +39,27 @@ class ViewController: UIViewController {
             }
     }
 }
+```
+#MangaqueImage transaltor 
 
 ```
-MangaqueImage transaltor 
-
-```
-
 class FakeTranslator: MangaqueTranslator {
     func performTranslate(untranslatedText: String, comletionHandler: @escaping (String?, Error?) -> ()) {
         // MARK: There is your own implementation
         comletionHandler("fake", nil)
     }
 }
+```
+
+#Mangaque Color
+
+Auto detects color of element automatically, but if you want to use specific color you can simply pass it
 
 ```
+public enum MangaqueColor {
+    case auto
+    case custom(color: UIColor)
+}
+```
+
+There is also example folder inside repo
