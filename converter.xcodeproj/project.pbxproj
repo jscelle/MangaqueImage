@@ -18,6 +18,7 @@
 		A4EDEA5128B8C05600331C91 /* MangaqueImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EDEA5028B8C05600331C91 /* MangaqueImageProcessor.swift */; };
 		A4EDEA5428B8C0D200331C91 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EDEA5328B8C0D200331C91 /* Models.swift */; };
 		A4EDEA5728B8C19100331C91 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EDEA5628B8C19100331C91 /* Extensions.swift */; };
+		A4EDEA5928BA08D000331C91 /* TranslatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EDEA5828BA08D000331C91 /* TranslatorProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		A4EDEA5028B8C05600331C91 /* MangaqueImageProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaqueImageProcessor.swift; sourceTree = "<group>"; };
 		A4EDEA5328B8C0D200331C91 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		A4EDEA5628B8C19100331C91 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		A4EDEA5828BA08D000331C91 /* TranslatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatorProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 				A4EDEA4E28B6991B00331C91 /* MangaqueImage.swift */,
 				A4EDEA5028B8C05600331C91 /* MangaqueImageProcessor.swift */,
 				A4EDEA5328B8C0D200331C91 /* Models.swift */,
+				A4EDEA5828BA08D000331C91 /* TranslatorProtocol.swift */,
 			);
 			path = Mangaque;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 				A4EDEA5428B8C0D200331C91 /* Models.swift in Sources */,
 				A4EDEA3D28B5485500331C91 /* SceneDelegate.swift in Sources */,
 				A4EDEA4F28B6991B00331C91 /* MangaqueImage.swift in Sources */,
+				A4EDEA5928BA08D000331C91 /* TranslatorProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

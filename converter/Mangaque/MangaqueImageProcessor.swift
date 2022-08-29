@@ -10,11 +10,14 @@ import Vision
 
 final class MangaqueImageProcessor {
     
-    func getSynopsises(
+    func detectSynopsys(
         cgImage: CGImage,
         orientation: CGImagePropertyOrientation,
         size: CGSize,
-        completionHandler: @escaping (_ result: [Synopsis]?, _ error: Error?) -> ()
+        completionHandler: @escaping (
+            _ result: [Synopsis]?,
+            _ error: Error?
+        ) -> ()
     ) {
         
         let imageRequestHandler = VNImageRequestHandler(
@@ -32,6 +35,7 @@ final class MangaqueImageProcessor {
             guard let results = request.results as? [VNRecognizedTextObservation],
                   error == nil
             else {
+                completionHandler(nil, error)
                 return
             }
             
@@ -67,9 +71,9 @@ final class MangaqueImageProcessor {
         }
     }
     
-    private func groupCloseSynopsis(synopisArray: [Synopsis]) -> [Synopsis] {
-        
-    #warning("there may be more elegant way")
+    private func groupCloseSynopsis(
+        synopisArray: [Synopsis]
+    ) -> [Synopsis] {
         let sortedArray = synopisArray.sorted { first, second in
             
             first.rect.midX > second.rect.midX

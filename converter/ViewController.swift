@@ -14,21 +14,39 @@ class ViewController: UIViewController {
     @IBOutlet weak var imageConverterView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        imageConverterView.image = #imageLiteral(resourceName: "Image")
+        imageConverterView.image = #imageLiteral(resourceName: "image2")
         imageConverterView.contentMode = .scaleAspectFit
+        
+        let fakeTranslator = FakeTranslator()
         
         mangaque.redrawImage(
             image: imageConverterView.image!,
+            translator: .custom(translator: fakeTranslator),
             textColor: .auto,
             backgroundColor: .auto
-        ) { [weak self] image in
+        ) { [weak self] image, error in
             
             guard let self = self else {
                 return
             }
             
-            self.imageConverterView.image = image
+            if let error = error {
+                print(error)
+            }
+            
+            if let image = image {
+                self.imageConverterView.image = image
+            }
         }
+    }
+}
+
+class FakeTranslator: MangaqueTranslator {
+    func performTranslate(
+        untranslatedText: String,
+        comletionHandler: @escaping (String?, Error?) -> ()
+    ) {
+        comletionHandler("fake translate", nil)
     }
 }
 
