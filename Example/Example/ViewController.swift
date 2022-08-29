@@ -18,7 +18,7 @@ class ViewController: UIViewController {
         
         let fakeTranslator = FakeTranslator()
         
-        let backgroundColor = MangaqueColor.custom(color: UIColor.green)
+        let backgroundColor = MangaqueColor.auto
         let textColor = MangaqueColor.auto
         
         mangaqueImage.redrawImage(
@@ -27,11 +27,11 @@ class ViewController: UIViewController {
             textColor: textColor,
             backgroundColor: backgroundColor
         ) { [weak self] image, error in
-            
+
             if let error = error {
                 print(error)
             }
-            
+
             if let image = image {
                 self?.contentImageView.image = image
             }
