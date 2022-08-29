@@ -35,8 +35,8 @@ class ViewController: UIViewController {
                 
                 if let image = image {
                     self?.contentImageView.image = image
-                }
             }
+        }
     }
 }
 ```
