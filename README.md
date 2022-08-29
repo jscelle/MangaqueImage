@@ -90,7 +90,7 @@ mangaqueImage.redrawImage(
         }
 }
 ```
-# Example of work
+# 🌩Example of work🌩
 
 Image before MangaqueImage redraw:
 
