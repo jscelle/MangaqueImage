@@ -15,7 +15,7 @@ public class MangaqueImage {
     
     private let processor = MangaqueImageProcessor()
     
-    func redrawImage(
+    public func redrawImage(
         image: UIImage,
         translator: MangaqueTranslation,
         textColor: MangaqueColor,
