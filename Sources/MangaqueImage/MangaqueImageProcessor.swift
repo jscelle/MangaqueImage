@@ -9,9 +9,11 @@
 import UIKit
 import Vision
 
-public final class MangaqueImageProcessor {
+public class MangaqueImageProcessor {
     
-    public func detectSynopsis(
+    public init() {}
+    
+    func detectSynopsis(
         cgImage: CGImage,
         orientation: CGImagePropertyOrientation,
         size: CGSize,
